@@ -24,7 +24,7 @@ public class GameObjectSerializer : MonoBehaviour
         // Serialize objects to JSON or another format
         string jsonData = JsonUtility.ToJson(objects);
 
-        // Send serialized data to the LLM via HTTP request
+        // Send serialized data to the LLM
         StartCoroutine(SendDataToLLM(jsonData));
     }
 
