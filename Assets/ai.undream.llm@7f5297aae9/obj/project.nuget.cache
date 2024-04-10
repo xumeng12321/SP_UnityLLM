@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "BSf/m3qNw2aBmc56nea1UXBBw6b8Gu/NV3e1JjBfNavpz1BXjSj4SoKtV5Bl3RFr5g6dSQPposCVzEE1DkEJLA==",
+  "success": true,
+  "projectFilePath": "D:\\UnityLLM\\SP_UnityLLM\\Library\\PackageCache\\ai.undream.llm@7f5297aae9\\LLMUnity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\xuant\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\xuant\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

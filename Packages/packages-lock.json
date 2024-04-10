@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "ai.undream.llm": {
-      "version": "https://github.com/undreamai/LLMUnity.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "7f5297aae9d24507b4caf6b3576810fd25eebc15"
-    },
     "com.unity.burst": {
       "version": "1.8.2",
       "depth": 1,

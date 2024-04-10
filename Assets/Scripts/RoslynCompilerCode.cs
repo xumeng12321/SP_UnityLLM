@@ -61,6 +61,7 @@ public class RoslynCompilerCode : MonoBehaviour
         return ScriptOptions.Default
             .WithImports(namespaces.Select(n => n.Replace("using", string.Empty).Trim()))
             .AddReferences(
+                typeof(UnityEngine.Physics).Assembly,
                 typeof(MonoBehaviour).Assembly,
                 typeof(Debug).Assembly
             );

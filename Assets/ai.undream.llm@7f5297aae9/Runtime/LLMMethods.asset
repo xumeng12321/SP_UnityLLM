@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96d3ef7c9645d343b05e4f34a3337c4, type: 3}
+  m_Name: LLMMethods
+  m_EditorClassIdentifier: 
+  prompt: 
+  codes:
+  - code: "using System.Collections;\r\n\r\nusing UnityEngine;\r\n\r\npublic class
+      Jump : MonoBehaviour\r\n{\r\n\r\n    public float jumpHeight = 0.5f;\r\n   
+      public float jumpInterval = 1f;\r\n\r\n    private Rigidbody rb;\r\n\r\n   
+      void Start()\r\n    {\r\n        if (GameObject.FindWithTag(\"AI\").GetComponent<Rigidbody>()
+      != null)\r\n        {\r\n\r\n        }\r\n        else\r\n        {\r\n           
+      GameObject.FindWithTag(\"AI\").AddComponent<Rigidbody>();\r\n        }\r\n       
+      rb = GameObject.FindWithTag(\"AI\").GetComponent<Rigidbody>();\r\n        StartCoroutine(JumpCoroutine());\r\n   
+      }\r\n\r\n    IEnumerator JumpCoroutine()\r\n    {\r\n        while (true)\r\n       
+      {\r\n            yield return new WaitForSeconds(jumpInterval);\r\n           
+      Jumping();\r\n        }\r\n    }\r\n\r\n    void JumpJump()\r\n    {\r\n       
+      \n        float jumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y)
+      * jumpHeight);\r\n\r\n        \r\n        rb.velocity = new Vector3(rb.velocity.x,
+      jumpVelocity, rb.velocity.z);\r\n    }\r\n\r\n}"
