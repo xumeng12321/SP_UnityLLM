@@ -52,6 +52,7 @@ public class RoslynCompilerCode : MonoBehaviour
         catch (System.Exception ex)
         {
             Debug.Log("Error: " + ex.Message);
+            
         }
     }
     

@@ -787,7 +787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.453888, y: 0}
+  m_AnchoredPosition: {x: 8.453888, y: 41.71162}
   m_SizeDelta: {x: 100, y: 73.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650891427
@@ -1455,8 +1455,8 @@ RectTransform:
   m_GameObject: {fileID: 972546061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 439}
-  m_LocalScale: {x: 1.1537, y: 1.1415999, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.76, y: 1.7415409, z: 1.5255265}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 11838951}
   m_Father: {fileID: 544015483}
@@ -1618,7 +1618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06a5a278d3988624989a7ad29899dc16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  advancedOptions: 0
+  advancedOptions: 1
   expertOptions: 0
   host: localhost
   port: 13333
@@ -1631,7 +1631,7 @@ MonoBehaviour:
   topK: 40
   topP: 0.9
   minP: 0.05
-  repeatPenalty: 1.1
+  repeatPenalty: 1
   presencePenalty: 0
   frequencyPenalty: 0
   tfsZ: 1
@@ -1649,28 +1649,29 @@ MonoBehaviour:
   grammarString: 
   playerName: user
   AIName: assistant
-  prompt: 'Write an Unity script named NewCode. The reply should be a complete, compilable
-    unity csharp file.  Do not start with "```". Do not include any comment with
-    "//". The monobehaviour should always have the name NewCode. The script should 
-    check if the component is attached before using GetComponent<> method. If not,
-    attach it. Use following csharp code whenever applicable. assume that the following
-    code needs no modification or only minimal modification.  '
+  prompt: 'Write an Unity script named "NewCode". Find gameobjects manually. Do not
+    repeat the question. The reply should be a complete, compilable unity csharp
+    file.  Do not start with "```". Do not include any comment with "//". The script
+    should define necessary classes and functions if needed. The reply should contain
+    a monobehaviour named "NewCode". Use following code whenever applicable:
+
+'
   methods: {fileID: 11400000, guid: 3c77733bda88dfc45b5b7ff2dd233284, type: 2}
-  chatTemplate: mistral instruct
+  chatTemplate: chatml
   setNKeepToPrompt: 1
   modelHide: 1
   numThreads: -1
-  numGPULayers: 0
+  numGPULayers: 50
   parallelPrompts: -1
   debug: 0
   asynchronousStartup: 0
   remote: 0
   killExistingServersOnStart: 1
-  model: mistral-7b-instruct-v0.2.Q4_K_M.gguf
+  model: openhermes-2.5-mistral-7b.Q4_K_M.gguf
   lora: 
-  contextSize: 2870
+  contextSize: 8000
   batchSize: 512
-  SelectedModel: 1
+  SelectedModel: 2
   modelProgress: 1
   modelCopyProgress: 1
 --- !u!114 &977528642

@@ -14,16 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: 
   codes:
-  - code: "using System.Collections;\r\n\r\nusing UnityEngine;\r\n\r\npublic class
-      Jump : MonoBehaviour\r\n{\r\n\r\n    public float jumpHeight = 0.5f;\r\n   
-      public float jumpInterval = 1f;\r\n\r\n    private Rigidbody rb;\r\n\r\n   
-      void Start()\r\n    {\r\n        if (GameObject.FindWithTag(\"AI\").GetComponent<Rigidbody>()
-      != null)\r\n        {\r\n\r\n        }\r\n        else\r\n        {\r\n           
-      GameObject.FindWithTag(\"AI\").AddComponent<Rigidbody>();\r\n        }\r\n       
-      rb = GameObject.FindWithTag(\"AI\").GetComponent<Rigidbody>();\r\n        StartCoroutine(JumpCoroutine());\r\n   
-      }\r\n\r\n    IEnumerator JumpCoroutine()\r\n    {\r\n        while (true)\r\n       
-      {\r\n            yield return new WaitForSeconds(jumpInterval);\r\n           
-      Jumping();\r\n        }\r\n    }\r\n\r\n    void JumpJump()\r\n    {\r\n       
-      \n        float jumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y)
-      * jumpHeight);\r\n\r\n        \r\n        rb.velocity = new Vector3(rb.velocity.x,
-      jumpVelocity, rb.velocity.z);\r\n    }\r\n\r\n}"
+  - code: 'using System.Collections;  using UnityEngine;  public class NewCode :
+      MonoBehaviour {      public float jumpHeight = 0.5f;     public float jumpInterval
+      = 1f;      private Rigidbody rb;      void Start()     {         if (GameObject.FindWithTag("AI").GetComponent<Rigidbody>()
+      != null)         {          }         else         {             GameObject.FindWithTag("AI").AddComponent<Rigidbody>();        
+      }         rb = GameObject.FindWithTag("AI").GetComponent<Rigidbody>();        
+      StartCoroutine(JumpCoroutine());     }      IEnumerator JumpCoroutine()    
+      {         while (true)         {             yield return new WaitForSeconds(jumpInterval);            
+      Jumping();         }     }      void JumpJump()     {                  float
+      jumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * jumpHeight);                  
+      rb.velocity = new Vector3(rb.velocity.x, jumpVelocity, rb.velocity.z);    
+      }  }'
