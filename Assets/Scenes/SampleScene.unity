@@ -787,7 +787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.453888, y: 41.71162}
+  m_AnchoredPosition: {x: 8.453888, y: 5.957795}
   m_SizeDelta: {x: 100, y: 73.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &650891427
@@ -1053,6 +1053,7 @@ MonoBehaviour:
   namespaces:
   - System
   - UnityEngine
+  - Callables
   sourceCode: 
   additionalCode: GameObject.Find("Interaction").AddComponent<NewCode>();
   OnRunCodeCompleted:
@@ -1649,19 +1650,23 @@ MonoBehaviour:
   grammarString: 
   playerName: user
   AIName: assistant
-  prompt: 'Write an Unity script named "NewCode". Find gameobjects manually. Do not
-    repeat the question. The reply should be a complete, compilable unity csharp
-    file.  Do not start with "```". Do not include any comment with "//". The script
-    should define necessary classes and functions if needed. The reply should contain
-    a monobehaviour named "NewCode". Use following code whenever applicable:
-
-'
+  prompt: "Write an Unity script named \"NewCode\" to do the task. Do not repeat
+    the question. The reply should be a complete, compilable unity csharp file. 
+    Do not start with \"```\". Do not explain the code. Do not include any comment
+    with \"//\". The reply should contain a monobehaviour named \"NewCode\". You
+    can use following functions if suitablel: \nCallableMethods.PerformJump(gameObject,
+    jumpHeight): Performs a jump on the specified game object.\nCallableMethods.RotateObject(gameObject,
+    rotationAxis, rotationSpeed):Rotates the specified game object around the given
+    rotation axis at the specified rotation speed.\nExample: User input: \"Make gameobject
+    with Tag \u201CAI\u201D jump with jumpheight 0.7\"\nAI Reply: using UnityEngine;using
+    System.Collections; public class NewCode : MonoBehaviour\r\n{ Start(){foreach(Gameobject
+    gameobject in FindGameObjectsWithTag(\"AI\")){CallableMethods.PerformJump(gameobject,0.7f)}}}"
   methods: {fileID: 11400000, guid: 3c77733bda88dfc45b5b7ff2dd233284, type: 2}
   chatTemplate: chatml
   setNKeepToPrompt: 1
   modelHide: 1
   numThreads: -1
-  numGPULayers: 50
+  numGPULayers: 30
   parallelPrompts: -1
   debug: 0
   asynchronousStartup: 0
@@ -1669,7 +1674,7 @@ MonoBehaviour:
   killExistingServersOnStart: 1
   model: openhermes-2.5-mistral-7b.Q4_K_M.gguf
   lora: 
-  contextSize: 8000
+  contextSize: 11242
   batchSize: 512
   SelectedModel: 2
   modelProgress: 1

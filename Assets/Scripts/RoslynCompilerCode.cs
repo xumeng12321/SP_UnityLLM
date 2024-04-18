@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis.Scripting;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-
+using Callables;
 
 public class RoslynCompilerCode : MonoBehaviour
 {
@@ -43,7 +43,7 @@ public class RoslynCompilerCode : MonoBehaviour
             foreach (string var in resultVars)
             {
                 resultInfo += $"{result.GetVariable(var).Name}: {result.GetVariable(var).Value}\n";
-
+            
             }
             //Debug.Log("4");
             OnRunCodeCompleted?.Invoke();
@@ -64,8 +64,8 @@ public class RoslynCompilerCode : MonoBehaviour
             .AddReferences(
                 typeof(UnityEngine.Physics).Assembly,
                 typeof(MonoBehaviour).Assembly,
-                typeof(Debug).Assembly
+                typeof(Debug).Assembly,
+                typeof(CallableMethods).Assembly
             );
     }
-
 }

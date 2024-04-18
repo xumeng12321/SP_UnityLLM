@@ -15,11 +15,15 @@ namespace LLMUnitySamples
         public Button CompileButton;
         private float startTime = 0.0f;
 
-
+        void WarmupCompleted()
+        {
+            Debug.Log("The AI is warm");
+        }
         void Start()
         {
             playerText.onSubmit.AddListener(onInputFieldSubmit);
             playerText.Select();
+            _ = llm.Warmup(WarmupCompleted);
         }
 
         void onInputFieldSubmit(string message)

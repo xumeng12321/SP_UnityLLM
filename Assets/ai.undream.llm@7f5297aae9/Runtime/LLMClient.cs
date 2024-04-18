@@ -161,10 +161,10 @@ namespace LLMUnity
                 chat = new List<ChatMessage>();
             }
 
-            Array.ForEach(methods.codes, r =>
-            {
-                prompt = prompt + r.code;
-            });
+            // Array.ForEach(methods.codes, r =>
+            // {
+            //     prompt = prompt + r.code;
+            // });
             prompt.Trim();
             ChatMessage promptMessage = new ChatMessage { role = "system", content = prompt };
             if (chat.Count == 0)

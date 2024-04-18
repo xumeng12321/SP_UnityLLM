@@ -2,7 +2,7 @@ using System.Collections;
 
 using UnityEngine;
 
-public class Jump : MonoBehaviour
+public class JumpJump : MonoBehaviour
 {
     public float jumpHeight = 1f; // Height of the jump
     public float jumpInterval = 1f; // Time interval between jumps
