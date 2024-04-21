@@ -1,11 +1,14 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
+using Callables;
 
-public class NewBehaviourScript : MonoBehaviour
+public class NewCode : MonoBehaviour
 {
-    void Start()
+    public void Start() 
     {
-
-    }
-
-} 
+        foreach (GameObject gameobject in GameObject.FindGameObjectsWithTag("AI")) 
+        {
+            CallableMethods.PerformJump(gameobject, 0.7f);
+        } 
+    } 
+}

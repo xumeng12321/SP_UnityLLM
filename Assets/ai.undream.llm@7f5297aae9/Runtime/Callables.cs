@@ -1,15 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-
-/// <summary>
-/// Provides methods for performing jumps.
-/// </summary>
 namespace Callables
-{
-
-
-    public static class CallableMethods
+{    public static class CallableMethods
     {
         /// <summary>
         /// Performs a jump on the specified game object.
@@ -31,8 +24,6 @@ namespace Callables
             // Apply jump velocity
             rb.velocity = new Vector3(rb.velocity.x, jumpVelocity, rb.velocity.z);
         }
-
-
 
 
         /// <summary>
@@ -57,6 +48,17 @@ namespace Callables
                 // Wait for the next frame
                 yield return null;
             }
+        }
+
+
+        /// <summary>
+        /// Changes the color of a GameObject's Renderer material.
+        /// </summary>
+        /// <param name="gameObject">The GameObject to change the color of.</param>
+        /// <param name="color">The new color to apply.</param>
+        public static void ChangeColor(GameObject gameObject,Color color)
+        {
+            gameObject.GetComponent<Renderer>().material.color = color;
         }
     }
 

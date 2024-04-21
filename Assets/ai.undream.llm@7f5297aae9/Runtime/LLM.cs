@@ -267,6 +267,7 @@ namespace LLMUnity
                 binary = "sh";
             }
             Debug.Log($"Server command: {binary} {arguments}");
+            
             process = LLMUnitySetup.CreateProcess(binary, arguments, CheckIfListening, ProcessError, ProcessExited);
         }
 
