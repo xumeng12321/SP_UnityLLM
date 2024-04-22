@@ -13,6 +13,14 @@ namespace LLMUnitySamples
         public TMP_Text AIText;
         public GameObject Roslyn;
         public Button CompileButton;
+
+        [SerializeField]
+        [TextArea(40, 12)]
+        private string codeEmbedding;
+
+        [SerializeField]
+        private string codeReplacement;
+
         private float startTime = 0.0f;
 
         void WarmupCompleted()
@@ -40,6 +48,17 @@ namespace LLMUnitySamples
             Debug.Log("AI reply: " + text);
         }
 
+        private string GenerateRoslynCode()
+        {
+            Debug.Log("Generating Roslyn code...");
+            string code = codeEmbedding;
+
+            code = code.Replace(codeReplacement, AIText.text);
+
+            Debug.Log("Code generated: " + code);
+            return code;
+        }
+
         public void AIReplyComplete()
         {
             playerText.interactable = true;
@@ -47,13 +66,17 @@ namespace LLMUnitySamples
             playerText.text = "";
             Debug.Log("AI reply complete");
 
+            string roslynCode = GenerateRoslynCode();
             Debug.Log("Sending reply to Roslyn Compiler...");
             // Instantiate RoslynCompilerCode and execute RunCode method
             GameObject roslyn_tmp = Instantiate(Roslyn);
-            roslyn_tmp.GetComponent<RoslynCompilerCode>().RunCode(AIText.text);
+            roslyn_tmp.GetComponent<RoslynCompilerCode>().RunCode(roslynCode);
             Debug.Log("Current script took " + (Time.time - startTime) + " seconds to execute.");
+            
             startTime = 0.0f;
+            // Reset timer
             Debug.Log("Roslyn Compiler run complete.");
+            //Compile Button to debug
             CompileButton.onClick.AddListener(() => roslyn_tmp.GetComponent<RoslynCompilerCode>().RunCode());
         }   
 
