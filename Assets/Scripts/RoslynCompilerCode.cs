@@ -65,7 +65,8 @@ public class RoslynCompilerCode : MonoBehaviour
                 typeof(UnityEngine.Physics).Assembly,
                 typeof(MonoBehaviour).Assembly,
                 typeof(Debug).Assembly,
-                typeof(CallableMethods).Assembly
+                typeof(CallableMethods).Assembly,
+                typeof(UnityEngine.AI.NavMesh).Assembly
             );
     }
 }

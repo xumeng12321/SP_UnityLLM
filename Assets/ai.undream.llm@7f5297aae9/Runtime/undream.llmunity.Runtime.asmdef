@@ -1,3 +1,19 @@
 {
-    "name": "undream.llmunity.Runtime"
+    "name": "undream.llmunity.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:fad9225a277e8764b81e4bda5c8fc27d",
+        "GUID:6d4810c931e638d489b58e9b332f3fb9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

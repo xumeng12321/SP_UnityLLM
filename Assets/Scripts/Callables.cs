@@ -1,9 +1,73 @@
 using UnityEngine;
 using System.Collections;
+using RootMotion.FinalIK;
 
 namespace Callables
 {    public static class CallableMethods
     {
+        private static bool pickUpStartCalled = false;
+        private static bool isPickingUp = false;
+        private static bool transformParentSet = false;
+        /// <summary>
+        /// Picks up a game object.
+        /// </summary>
+        /// <param name="obj">The game object to pick up.</param>
+        public static void PickUpObject(GameObject obj)
+        {
+            UnityEngine.AI.NavMeshAgent agent= GameObject.FindObjectOfType<UnityEngine.AI.NavMeshAgent>();
+            if (!pickUpStartCalled)
+            {
+
+                agent.SetDestination(obj.transform.position);
+
+                BipedIK bipedIK;
+                bipedIK = agent.gameObject.GetComponent<BipedIK>();
+
+                bipedIK.solvers.lookAt.target = obj.transform;
+                bipedIK.solvers.lookAt.SetLookAtWeight(0.3f, 0.5f, 1f, 1f, 0.5f, 0.5f, 0.5f);
+                
+                isPickingUp = false;
+                transformParentSet = false;
+                pickUpStartCalled = true;
+                return;
+            }
+
+            if (!isPickingUp && Vector3.Distance(agent.transform.position, obj.transform.position) < 1.15f)
+            {
+                isPickingUp = true;
+            
+                // Start picking up the object
+                PickUpObject(agent.gameObject.GetComponent<BipedIK>(),obj);
+            }
+
+            if (!transformParentSet && isPickingUp)
+            {
+                agent.gameObject.GetComponent<MonoBehaviour>().StartCoroutine(SetTransformParent(agent.gameObject.GetComponent<BipedIK>(),obj,transformParentSet));
+            }
+        }
+
+        private static void PickUpObject(BipedIK bipedIK, GameObject obj)
+        {
+            bipedIK.solvers.rightHand.target = obj.transform;
+            bipedIK.solvers.pelvis.target = obj.transform;
+            bipedIK.solvers.rightHand.IKPositionWeight = 1f;
+            bipedIK.solvers.pelvis.positionWeight = 0.3f;
+            
+            Debug.Log("pickedUp");
+        }
+
+        private static IEnumerator SetTransformParent(BipedIK bipedIK, GameObject obj, bool transformParentSet)
+        {
+            yield return new WaitForSeconds(1f);
+            bipedIK.solvers.rightHand.target = null;
+            bipedIK.solvers.pelvis.target = null;
+            obj.transform.parent = bipedIK.references.rightHand.transform;
+            obj.transform.localPosition = new Vector3(-0.1f,0.05f,0f);
+            transformParentSet = true;
+        }
+
+
+
         /// <summary>
         /// Performs a jump on the specified game object.
         /// </summary>
